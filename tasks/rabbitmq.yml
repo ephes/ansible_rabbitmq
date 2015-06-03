@@ -1,0 +1,18 @@
+---
+# file: roles/rabbitmq/tasks/rabbitmq.yml
+
+- name: install latest rabbitmq package
+  sudo: yes
+  apt: pkg=rabbitmq-server state=latest
+
+- name: install rabbitmq-server
+  sudo: yes
+  apt: name=rabbitmq-server
+
+- name: enable rabbitmq-server to survive reboot
+  sudo: yes
+  service: name=rabbitmq-server enabled=yes
+
+- name: make sure rabbitmq is running
+  sudo: yes
+  service: name=rabbitmq-server state=running

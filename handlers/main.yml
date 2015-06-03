@@ -1,0 +1,6 @@
+---
+# handlers file for roles/rabbitmq
+
+- name: restart rabbitmq-server
+  service: name=rabbitmq-server state=restarted enabled=yes
+  sudo: yes
